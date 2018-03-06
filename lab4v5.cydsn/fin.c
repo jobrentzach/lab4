@@ -3,7 +3,9 @@
 
 void fin()
 {
-	
+	// Attente du départ
+	enable();
+
 	int temps_seance_F = 0;
 	int delayF = Random_ReadCounter()%10000;
 	CyDelay(1000);

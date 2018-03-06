@@ -3,6 +3,9 @@
 
 void debut()
 {
+	// Attente du départ
+	enable();
+
 	// Initialisation du temps de réaction
 	int temps_seance_D = 0;
 	

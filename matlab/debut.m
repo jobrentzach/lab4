@@ -2,6 +2,7 @@ function debut()
 %DEBUT Expérience DÉBUT
 
 fprintf('Expérience DÉBUT!\n');
+fprintf('Appuyez sur E pour commencer\n');
 
 global serialPort;
 time_str = fscanf(serialPort);
