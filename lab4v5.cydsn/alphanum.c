@@ -13,6 +13,8 @@ void alphanum()
 
 	UART_PutChar(random_char);
 
+	enable();
+
 	Timer_Start();
 	g_key_pressed = 0;
 

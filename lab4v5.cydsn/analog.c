@@ -17,6 +17,8 @@ void analog()
 	char toUART[100] = {};
 	snprintf(toUART,100,"%d\n",lecture_cible);
 	UART_PutString(toUART);
+
+	enable();
 	
 	Timer_Start();
 	

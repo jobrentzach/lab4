@@ -2,6 +2,7 @@ function fin()
 %FIN Expérience FIN
 
 fprintf('Expérience FIN!\n');
+fprintf('Appuyez sur E pour commencer...\n');
 
 global serialPort;
 time_str = fscanf(serialPort);
