@@ -17,5 +17,6 @@ void debut();
 void fin();
 void alphanum();
 void analog();
+void enable();
 
 #endif

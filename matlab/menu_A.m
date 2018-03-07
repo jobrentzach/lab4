@@ -8,8 +8,15 @@ fprintf('\tB: Retour au menu principal\n');
 fprintf('Sélection: ');
 
 global serialPort;
-choix = fscanf(serialPort);
-fprintf('%c\n',choix)
+
+serial_byte = false;
+while (serial_byte == false)
+    if (serialPort.BytesAvailable)
+        choix = fscanf(serialPort);
+        fprintf('%c\n',choix)
+        serial_byte = true;
+    end
+end
 
 switch choix
     case '0'

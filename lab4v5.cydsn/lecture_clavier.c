@@ -3,8 +3,11 @@
 
 char lecture_clavier()
 {
-	while(!g_key_pressed){
-		if (g_key_pressed){
+	g_key_pressed = 0;
+	while(!g_key_pressed)
+	{
+		if (g_key_pressed)
+		{
 			g_key_pressed = 0;
 
 			// Debouncing

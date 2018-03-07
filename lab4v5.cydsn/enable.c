@@ -7,7 +7,7 @@ void enable()
 
 	while (!touche_E)
 	{
-		key = lecture_clavier();
+		char key = lecture_clavier();
 		if (key == 'E')
 		{
 			touche_E = 1;

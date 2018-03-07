@@ -2,6 +2,16 @@ function analog()
 %ANALOG Expérience ANALOG
 
 global serialPort;
+
+% serial_byte = false;
+% while (serial_byte == false)
+%     if (serialPort.BytesAvailable)
+%         time_str = fscanf(serialPort);
+%         time = str2double(time_str);
+%         serial_byte = true;
+%     end
+% end
+
 cible = fscanf(serialPort);
 trouve = false;
 

@@ -5,12 +5,19 @@ fprintf('Choisir la commande\n');
 fprintf('\tD: Expérience DÉBUT\n');
 fprintf('\tF: Expérience FIN\n');
 fprintf('\tA: Expérience ALPHANUMÉRIQUE ou ANALOGIQUE\n');
-fprintf('\tC: Afficher les statistiques');
+fprintf('\tC: Afficher les statistiques\n');
 fprintf('Sélection: ');
 
 global serialPort;
-choix = fscanf(serialPort);
-fprintf('%c\n',choix)
+
+serial_byte = false;
+while (serial_byte == false)
+    if (serialPort.BytesAvailable)
+        choix = fscanf(serialPort);
+        fprintf('%c\n',choix)
+        serial_byte = true;
+    end
+end
 
 switch choix
     case 'D'

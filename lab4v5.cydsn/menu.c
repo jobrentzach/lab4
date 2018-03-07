@@ -25,11 +25,13 @@ void menu(char choix)
 				{
 					case '1' :
 					{
+						UART_PutChar('1');
 						analog();
 						break;
 					}
 					case '0' :
 					{
+						UART_PutChar('0');
 						alphanum();
 						break;
 					}
