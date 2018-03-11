@@ -10,20 +10,31 @@ void alphanum()
 	int temps = 0;
 	
 	uint8_t key_found = 0;
+	int t= Random_ReadCounter()%30000; // Utilisation du compteur Random comme seed pour générer les nombres aléatoires
+    srand(t);
 	
-	uint8_t random_row = Random_ReadCounter()%4;
-	uint8_t random_col = Random_ReadCounter()%4;
+	//uint8_t random_row = Random_ReadCounter()%4;
+	//uint8_t random_col = Random_ReadCounter()%4;
+	uint8_t random_row = rand() %4;
+	uint8_t random_col = rand() %4;
+	Random_Stop();
+	
+	Random_Init();
+	Random_Start();
 	char random_char = CLAVIER[random_row][random_col];
 
-	UART_PutChar(random_char);
-	UART_ClearTxBuffer();
-	UART_ClearRxBuffer();
 	enable();
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
-
+	
+	UART_PutChar(random_char);
 	Timer_Start();
 	g_key_pressed = 0;
+	
+	UART_ClearTxBuffer();
+	UART_ClearRxBuffer();
+
+	
 
 	do
 	{
@@ -31,7 +42,7 @@ void alphanum()
 		if (random_char == user_char)
 		{
 			
-			temps = Timer_ReadPeriod() - Timer_ReadCounter();
+			temps = (Timer_ReadPeriod() - Timer_ReadCounter())*10;
 			key_found = 1;
 		}
 
