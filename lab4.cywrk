@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="lab4" persistent="lab4.cywrk" platform="NOT_USED">
-<current_project name=".\lab4v5.cydsn\lab4v5.cyprj" />
+<current_project name=".\lab4v6.cydsn\lab4v6.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -12,11 +12,11 @@
 <v>.\lab4v3.cydsn\lab4v3.cyprj</v>
 <v>.\lab4-ADC.cydsn\lab4-ADC.cyprj</v>
 <v>.\lab4v4.cydsn\lab4v4.cyprj</v>
-<v>.\lab4v5.cydsn\lab4v5.cyprj</v>
 <v>.\LaboMenu.cydsn\LaboMenu.cyprj</v>
 <v>.\DebutFin.cydsn\DebutFin.cyprj</v>
 <v>.\UART-Rand.cydsn\UART-Rand.cyprj</v>
 <v>.\potentiometre.cydsn\potentiometre.cyprj</v>
+<v>.\lab4v6.cydsn\lab4v6.cyprj</v>
 </projects>
 <workspace_id v="3dd93729-ce38-44ce-91a0-b441793b4122" />
 <WriteAppVersionLastSavedWith v="4.1.0.3210" />

@@ -33,4 +33,5 @@ void fin()
 		UART_ClearRxBuffer();
 	}
 	Timer_Stop();
+	Timer_Init();
 }
