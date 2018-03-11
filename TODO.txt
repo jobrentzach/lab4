@@ -1,5 +1,6 @@
 - Revoir l'impression du temps de réaction dans la fonction Fin
-
+- Écrire la fonction C (Calculate)
+- Écrire la fonction B (Back)
 
 
 Ressources
