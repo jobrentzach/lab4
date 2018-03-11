@@ -3,9 +3,13 @@
 
 void debut()
 {
+	UART_ClearTxBuffer();
+	UART_ClearRxBuffer();
+	
 	// Attente du départ
-	enable();
 	LED_Write(0);
+	enable();
+
 	// Initialisation du temps de réaction
 	int temps_seance_D = 0;
 	
@@ -13,9 +17,10 @@ void debut()
 	int delay_D = Random_ReadCounter()%5000;
 	
 	CyDelay(delay_D);
+	LED_Write(1);
+	Timer_Init();
 	Timer_Start();
-	LED_Write(!LED_Read());
-
+	
 	//On s'assure que le user_btn est initialisé à 0
 	g_btn_pressed = 0;
 
@@ -23,16 +28,14 @@ void debut()
 	{
 		if(g_btn_pressed)
 		{
-			Timer_Stop();
-			temps_seance_D = Timer_ReadPeriod() - Timer_ReadCounter();
-			LED_Write(1);
-			g_btn_pressed = 0;
+			temps_seance_D =  Timer_ReadPeriod()- Timer_ReadCounter();
 		}
-	} while (!g_btn_pressed || !temps_seance_D);
+	} while (!temps_seance_D);
 	
+	Timer_Stop();
 	LED_Write(0);
-	char toUART[100] = {};
-	snprintf(toUART,100,"\r\n %3d ",temps_seance_D);
+	char toUART[10] = {};
+	sprintf(toUART,"\r\n %d \r\n ",temps_seance_D);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

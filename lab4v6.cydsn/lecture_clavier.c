@@ -4,11 +4,11 @@
 char lecture_clavier()
 {
 	g_key_pressed = 0;
-	while(!g_key_pressed)
+	
+	while(1)
 	{
 		if (g_key_pressed)
 		{
-			g_key_pressed = 0;
 
 			// Debouncing
 			CyDelay(100);
@@ -23,5 +23,4 @@ char lecture_clavier()
 			}
 		}
 	}
-	return('X');
 }
