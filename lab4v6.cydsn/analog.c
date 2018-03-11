@@ -18,7 +18,11 @@ void analog()
 	sprintf(toUART,"\n\r %d\n\r",lecture_cible);
 	UART_PutString(toUART);
 
-	enable();
+	uint8_t sortie = enable();
+	if (sortie)
+	{
+		return;
+	}
 	
 	Timer_Start();
 	Timer_WritePeriod(100000);

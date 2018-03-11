@@ -1,19 +1,19 @@
 #include "project.h"
 #include "header.h"
 
-void enable()
+uint8_t enable()
 {
 	UART_Start();
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
-	uint8_t touche_E = 0;
+	
 
-	while (!touche_E)
+	while (1)
 	{
 		char key = lecture_clavier();
 		if (key == 'E')
 		{
-			touche_E = 1;
+			
 			UART_ClearTxBuffer();
 			UART_ClearRxBuffer();
 			UART_PutChar(key);
@@ -22,6 +22,12 @@ void enable()
 			UART_PutString(toUART);
 			UART_ClearTxBuffer();
 			UART_ClearRxBuffer();
+			return 0;
+		}
+		else if (key == 'B')
+		{
+			// Envoyer en UART à MATLAB qu'on sort pour qu'il aille au menu lui aussi.
+			return 1;
 		}
 	}
 }

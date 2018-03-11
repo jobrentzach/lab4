@@ -8,7 +8,11 @@ void debut()
 	
 	// Attente du départ
 	LED_Write(0);
-	enable();
+	uint8_t sortie = enable();
+	if (sortie)
+	{
+		return;
+	}
 
 	// Initialisation du temps de réaction
 	Timer_WritePeriod(100000);

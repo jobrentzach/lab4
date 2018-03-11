@@ -5,8 +5,14 @@ void fin()
 {
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
+	
 	// Attente du départ
-	enable();
+	
+	uint8_t sortie = enable();
+	if (sortie)
+	{
+		return;
+	}
 	Timer_WritePeriod(100000);
 	int temps_seance_F = 0;
 	int delayF = Random_ReadCounter()%10000;

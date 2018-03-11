@@ -17,6 +17,6 @@ void debut();
 void fin();
 void alphanum();
 void analog();
-void enable();
+uint8_t enable();
 
 #endif

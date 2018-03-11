@@ -24,7 +24,11 @@ void alphanum()
 	
 	char random_char = CLAVIER[random_row][random_col];
 
-	enable();
+	uint8_t sortie = enable();
+	if (sortie)
+	{
+		return;
+	}
 	
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
