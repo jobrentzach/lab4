@@ -18,7 +18,7 @@ void enable()
 			UART_ClearRxBuffer();
 			UART_PutChar(key);
 			char toUART[10] = {};
-			snprintf(toUART,10,"\r\n ");
+			snprintf(toUART,10,"\r\n\t ");
 			UART_PutString(toUART);
 			UART_ClearTxBuffer();
 			UART_ClearRxBuffer();

@@ -30,10 +30,11 @@ void alphanum()
 	UART_ClearRxBuffer();
 	
 	
+	
 	UART_PutChar(random_char);
-//	char toUART1[10] = {};
-//	snprintf(toUART1,10,"\r\n ");
-//	UART_PutString(toUART1);
+	char toUART1[10] = {};
+	snprintf(toUART1,10,"\r\n %c \r\n", random_char);
+	UART_PutString(toUART1);
 
 	Timer_Start();
 	g_key_pressed = 0;
@@ -49,7 +50,7 @@ void alphanum()
 		if (random_char == user_char)
 		{
 			
-			temps = (Timer_ReadPeriod() - Timer_ReadCounter())*10;
+			temps = (Timer_ReadPeriod() - Timer_ReadCounter()); //Le *10 a été enlevé depuis qu'il faut envoyer le random_char en format string
 			key_found = 1;
 		}
 
@@ -57,7 +58,7 @@ void alphanum()
 	Timer_Stop();
 	Timer_Init();
 	char toUART[100] = {};
-	snprintf(toUART,100,"\r\n %d \n ",temps);
+	snprintf(toUART,100,"\r\n %d \r\n\t ",temps);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

@@ -31,7 +31,7 @@ void menu(char choix)
 				
 				UART_PutChar('A');
 				char toUART[10] = {};
-				snprintf(toUART,10,"\r\n ");
+				snprintf(toUART,10,"\r\n\t ");
 				UART_PutString(toUART);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
@@ -56,7 +56,7 @@ void menu(char choix)
 						
 						UART_PutChar('0');
 						char toUART[10] = {};
-						snprintf(toUART,10,"\r\n ");
+						snprintf(toUART,10,"\r\n\t ");
 						UART_PutString(toUART);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
