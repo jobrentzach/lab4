@@ -3,6 +3,8 @@
 
 void menu(char choix)
 {
+	UART_ClearTxBuffer();
+	UART_ClearRxBuffer();
 	switch(choix)
 		{
 			case 'D' :
@@ -20,6 +22,8 @@ void menu(char choix)
 			case 'A' :
 			{
 				UART_PutChar('A');
+				UART_ClearTxBuffer();
+				UART_ClearRxBuffer();
 				char alpha_analog = lecture_clavier();
 				switch(alpha_analog)
 				{
@@ -44,6 +48,8 @@ void menu(char choix)
 
 				}
 			}
+			UART_ClearTxBuffer();
+			UART_ClearRxBuffer();
 			default :
 			{
 				UART_PutChar('Z');

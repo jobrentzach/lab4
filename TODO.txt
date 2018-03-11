@@ -1,5 +1,5 @@
-- La fonction enable() reste des fois prise dans sa boucle infinie
-- La variable key de main.c semble parfois prise sur la même valeur ('X') au lieu de se mettre à jour à chaque itération
+- Revoir l'impression du temps de réaction dans la fonction Fin
+
 
 
 Ressources
