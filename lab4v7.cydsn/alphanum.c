@@ -61,8 +61,8 @@ void alphanum()
 	} while (!temps || !key_found);
 	Timer_Stop();
 	Timer_Init();
-	char toUART[100] = {};
-	snprintf(toUART,100,"\r\n %d \r\n\t ",temps);
+	char toUART[250] = {};
+	sprintf(toUART,"\r\n\n\n Votre temps de reaction pour cette seance est de : %d ms \r\n ",temps);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

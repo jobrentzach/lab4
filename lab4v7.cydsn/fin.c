@@ -27,14 +27,14 @@ void fin()
 	{
 		if(g_btn_pressed)
 		{	
-			temps_seance_F = (Timer_ReadPeriod()- Timer_ReadCounter())*10;
+			temps_seance_F = (Timer_ReadPeriod()- Timer_ReadCounter());
 		
 		}
 	} while (!temps_seance_F);
 	Timer_Stop();
 	Timer_Init();
-	char toUART[100] = {};
-	sprintf(toUART,"\r\n %d \r\n",temps_seance_F);
+	char toUART[250] = {};
+	sprintf(toUART,"\r\n\n\n Votre temps de reaction pour cette seance est de : %d ms \r\n ",temps_seance_F);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

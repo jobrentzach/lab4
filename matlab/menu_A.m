@@ -24,9 +24,10 @@ switch choix
     case '1'
         analog();
     case 'B'
-        menu();
+        menu_principal();
     otherwise
         fprintf('Erreur, retour au menu principal\n');
+        %menu_principal(); Afin de retourner au menu principal comme annoncé
 end
 end
 

@@ -1,6 +1,7 @@
 function menu_principal()
 %MENU_PRINCIPAL Menu principal pour choisir l'expérience
-
+%clc; à ajouter pour effacer tout ce qui précède avant d'afficher le menu
+%(Esthétisme)
 fprintf('Choisir la commande\n');
 fprintf('\tD: Expérience DÉBUT\n');
 fprintf('\tF: Expérience FIN\n');

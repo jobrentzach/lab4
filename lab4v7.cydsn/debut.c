@@ -39,8 +39,8 @@ void debut()
 	Timer_Stop();
 	Timer_Init();
 	LED_Write(0);
-	char toUART[100] = {};
-	sprintf(toUART,"\r\n %d \r\n ",temps_seance_D);
+	char toUART[250] = {};
+	sprintf(toUART,"\r\n\n\n Votre temps de reaction pour cette seance est de : %d ms \r\n ",temps_seance_D);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

@@ -6,12 +6,17 @@ void menu(char choix)
 	UART_Start();
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
+
+
 	switch(choix)
 		{
 			case 'D' :
 			{
 				
 				UART_PutChar('D');
+				char toUART2[10] = {};
+				snprintf(toUART2,10,"\r\n");
+				UART_PutString(toUART2);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
 				debut();
@@ -21,6 +26,9 @@ void menu(char choix)
 			{
 				
 				UART_PutChar('F');
+				char toUART2[10] = {};
+				snprintf(toUART2,10,"\r\n");
+				UART_PutString(toUART2);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
 				fin();
@@ -30,9 +38,9 @@ void menu(char choix)
 			{
 				
 				UART_PutChar('A');
-				char toUART[10] = {};
-				snprintf(toUART,10,"\r\n\t ");
-				UART_PutString(toUART);
+				char toUART2[10] = {};
+				snprintf(toUART2,10,"\r\n");
+				UART_PutString(toUART2);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
 				
@@ -43,9 +51,9 @@ void menu(char choix)
 					{
 						
 						UART_PutChar('1');
-						char toUART[10] = {};
-						snprintf(toUART,10,"\r\n ");
-						UART_PutString(toUART);
+						char toUART2[10] = {};
+						snprintf(toUART2,10,"\r\n ");
+						UART_PutString(toUART2);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
 						analog();
@@ -55,9 +63,9 @@ void menu(char choix)
 					{
 						
 						UART_PutChar('0');
-						char toUART[10] = {};
-						snprintf(toUART,10,"\r\n\t ");
-						UART_PutString(toUART);
+						char toUART2[10] = {};
+						snprintf(toUART2,10,"\r\n ");
+						UART_PutString(toUART2);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
 						alphanum();
