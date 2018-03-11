@@ -43,6 +43,7 @@ void menu(char choix)
 					}
 
 				}
+				break;
 			}
 			default :
 			{
