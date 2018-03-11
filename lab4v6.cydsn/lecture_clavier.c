@@ -9,9 +9,9 @@ char lecture_clavier()
 	{
 		if (g_key_pressed)
 		{
-
+			g_key_pressed = 0;
 			// Debouncing
-			CyDelay(100);
+			CyDelay(20);
 
 			pins_read();
 			for (int i = 0; i < 4; i ++){

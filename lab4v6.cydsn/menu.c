@@ -3,39 +3,49 @@
 
 void menu(char choix)
 {
+	UART_Start();
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	switch(choix)
 		{
 			case 'D' :
 			{
+				
+				UART_PutChar('D');
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
-				UART_PutChar('D');
 				debut();
 				break;
 			}
 			case 'F' :
 			{
+				
+				UART_PutChar('F');
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
-				UART_PutChar('F');
 				fin();
 				break;
 			}
 			case 'A' :
 			{
+				
+				UART_PutChar('A');
+				char toUART[10] = {};
+				snprintf(toUART,10,"\r\n ");
+				UART_PutString(toUART);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
-				UART_PutChar('A');
+				
 				char alpha_analog = lecture_clavier();
 				switch(alpha_analog)
 				{
 					case '1' :
 					{
-						UART_ClearTxBuffer();
-						UART_ClearRxBuffer();
+						
 						UART_PutChar('1');
+						char toUART[10] = {};
+						snprintf(toUART,10,"\r\n ");
+						UART_PutString(toUART);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
 						analog();
@@ -43,9 +53,11 @@ void menu(char choix)
 					}
 					case '0' :
 					{
-						UART_ClearTxBuffer();
-						UART_ClearRxBuffer();
+						
 						UART_PutChar('0');
+						char toUART[10] = {};
+						snprintf(toUART,10,"\r\n ");
+						UART_PutString(toUART);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
 						alphanum();
@@ -53,10 +65,12 @@ void menu(char choix)
 					}
 					default :
 					{
-						UART_ClearTxBuffer();
-						UART_ClearRxBuffer();
+						
 						UART_PutChar('Y');
-						UART_PutChar(choix);
+						//UART_PutChar(choix);
+						char toUART[10] = {};
+						snprintf(toUART,10,"\r\n ");
+						UART_PutString(toUART);
 						UART_ClearTxBuffer();
 						UART_ClearRxBuffer();
 						break;
@@ -69,13 +83,17 @@ void menu(char choix)
 			UART_ClearRxBuffer();
 			default :
 			{
-				UART_ClearTxBuffer();
-				UART_ClearRxBuffer();
+			
 				UART_PutChar('Z');
-				UART_PutChar(choix);
+				//UART_PutChar(choix);
+				char toUART[10] = {};
+				snprintf(toUART,10,"\r\n ");
+				UART_PutString(toUART);
 				UART_ClearTxBuffer();
 				UART_ClearRxBuffer();
 				break;
 			}
 		}
+		UART_ClearTxBuffer();
+		UART_ClearRxBuffer();
 }

@@ -3,6 +3,7 @@
 
 void alphanum()
 {
+	UART_Start();
 	Timer_WritePeriod(100000);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
@@ -18,16 +19,22 @@ void alphanum()
 	uint8_t random_row = rand() %4;
 	uint8_t random_col = rand() %4;
 	Random_Stop();
-	
 	Random_Init();
 	Random_Start();
+	
 	char random_char = CLAVIER[random_row][random_col];
 
 	enable();
+	
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
+	
 	UART_PutChar(random_char);
+//	char toUART1[10] = {};
+//	snprintf(toUART1,10,"\r\n ");
+//	UART_PutString(toUART1);
+
 	Timer_Start();
 	g_key_pressed = 0;
 	
