@@ -17,7 +17,6 @@ int main(void)
 	
 	ISR_input_pins_StartEx(ISR_input_pins_Handler);
 	ISR_user_btn_StartEx(ISR_user_btn_Handler);
-	Timer_WritePeriod(100000);
 	Clock1_Start();
 	Clock2_Start();
 	UART_Start();

@@ -3,35 +3,35 @@
 
 void fin()
 {
+	UART_ClearTxBuffer();
+	UART_ClearRxBuffer();
 	// Attente du départ
 	enable();
-
+	Timer_WritePeriod(100000);
 	int temps_seance_F = 0;
 	int delayF = Random_ReadCounter()%10000;
 	CyDelay(1000);
-	LED_Write(!LED_Read());
+	LED_Write(1);
 	CyDelay(delayF);
+	LED_Write(0);
 	Timer_Start();
-	LED_Write(!LED_Read());
 	g_btn_pressed = 0;
 	
 	do 
 	{
 		if(g_btn_pressed)
 		{	
-			temps_seance_F = Timer_ReadPeriod() - Timer_ReadCounter();
-			g_btn_pressed = 0;		
+			temps_seance_F = (Timer_ReadPeriod()- Timer_ReadCounter())*10;
+		
 		}
-	} while (!g_btn_pressed || !temps_seance_F);
-	
-	char toUART[100] = {};
-	if(temps_seance_F)
-	{
-		sprintf(toUART,"\r\n %d \n",temps_seance_F);
-		UART_PutString(toUART);
-		UART_ClearTxBuffer();
-		UART_ClearRxBuffer();
-	}
+	} while (!temps_seance_F);
 	Timer_Stop();
 	Timer_Init();
+	char toUART[100] = {};
+	sprintf(toUART,"\r\n %d \r\n",temps_seance_F);
+	UART_PutString(toUART);
+	UART_ClearTxBuffer();
+	UART_ClearRxBuffer();
+	
+	
 }
