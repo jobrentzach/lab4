@@ -32,6 +32,7 @@ void menu(char choix)
 		case 'A' :
 		{
 			UART_PutChar('A');
+			UART_ClearTxBuffer();
 			char alpha_analog = lecture_clavier();
 			switch(alpha_analog)
 			{
@@ -49,12 +50,12 @@ void menu(char choix)
 					alphanum();
 					break;
 				}
-				default :
+				/*default :
 				{
 					UART_PutChar('Y');
 					UART_PutString(CRNL);
 					break;
-				}
+				}*/
 
 			}
 			break;

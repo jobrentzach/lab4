@@ -29,8 +29,9 @@ void analog()
 	Random_Init();
 	Random_Start();
 	char toUART1[100] = {};
-	sprintf(toUART1," \n La valeur cible est : %d / 100 \r \n ",lecture_cible*100/255);
+	sprintf(toUART1, " \r\n La valeur cible est : %d / 100 \r\n ", lecture_cible*100/255);
 	UART_PutString(toUART1);
+	UART_PutChar('\n');
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
