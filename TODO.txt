@@ -1,6 +1,6 @@
-- Revoir l'impression du temps de réaction dans la fonction Fin
-- Écrire la fonction C (Calculate)
-- Écrire la fonction B (Back)
+- Ajouter C dans l'affichage
+- Régler les erreurs <<Undefined reference to 'pow'>>, <<Undefined reference to 'sqrt'>> dans la fonction stats()
+- Tester l'affichage de la fonction affichage_stats() avec des statistiques de séances
 
 
 Ressources
