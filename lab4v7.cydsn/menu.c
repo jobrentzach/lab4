@@ -51,12 +51,12 @@ void menu(char choix)
 					alphanum();
 					break;
 				}
-				default :
+				/*default :
 				{
 					UART_PutChar('Y');
 					UART_PutString(CRNL);
 					break;
-				}
+				}*/
 
 			}
 			break;
