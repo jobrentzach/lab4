@@ -32,6 +32,8 @@ void menu(char choix)
 		case 'A' :
 		{
 			UART_PutChar('A');
+			CyDelay(100);
+			UART_ClearTxBuffer();
 			char alpha_analog = lecture_clavier();
 			switch(alpha_analog)
 			{
