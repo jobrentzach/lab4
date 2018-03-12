@@ -18,6 +18,10 @@ uint8_t enable()
 			UART_PutString(toUART);
 			UART_ClearTxBuffer();
 			UART_ClearRxBuffer();
+
+			// Délai pour donner le temps à l'utilisateur de se préparer.
+			CyDelay(1000);
+
 			return 0;
 		}
 		else if (key == 'B')

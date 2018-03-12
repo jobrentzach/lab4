@@ -60,6 +60,9 @@ int main(void)
 		
 		char key = lecture_clavier();
 		menu(key);
+
+		// Délai pour laisser le temps de lire le temps de réaction.
+		CyDelay(3000);
 	}
 }
 
