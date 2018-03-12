@@ -29,7 +29,6 @@ void fin();
 void alphanum();
 void analog();
 void affichage_stats();
-//double * stats(volatile int length, volatile double a[8]);
 int moyenne(volatile int length, volatile int a[8]);
 int ecart(volatile int length, volatile int a[8]);
 uint8_t enable();

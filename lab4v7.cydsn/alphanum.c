@@ -68,9 +68,9 @@ void alphanum()
 	UART_ClearRxBuffer();
 	
 	sequenceA0.temps_react[sequenceA0.compteur] = temps;
-	sequenceA0.compteur +=1;
 	if(sequenceA0.compteur == 7)
 	{
-		sequenceA0.compteur = 0;
+		sequenceA0.compteur = 0;	// Réinitialisation.
 	}
+	sequenceA0.compteur +=1;
 }

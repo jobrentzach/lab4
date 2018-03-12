@@ -23,7 +23,7 @@ CY_ISR_PROTO(ISR_user_btn_Handler);
 
 int main(void)
 {
-
+	
 	sequenceD.compteur = 0;
 	sequenceF.compteur = 0;
 	sequenceA0.compteur = 0;

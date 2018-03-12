@@ -40,10 +40,9 @@ void fin()
 	UART_ClearRxBuffer();
 	
 	sequenceF.temps_react[sequenceF.compteur] = temps_seance_F;
-	sequenceF.compteur +=1;
 	if(sequenceF.compteur == 7)
 	{
 		sequenceF.compteur = 0;
 	}
-	
+	sequenceF.compteur +=1;
 }
