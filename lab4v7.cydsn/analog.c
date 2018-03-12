@@ -30,7 +30,7 @@ void analog()
 	Random_Init();
 	Random_Start();
 	char toUART1[100] = {};
-	sprintf(toUART1," \n La valeur cible est : %d  \r \n ",lecture_cible);
+	sprintf(toUART1," \n La valeur cible est : %d / 100 \r \n ",lecture_cible*100/255);
 	UART_PutString(toUART1);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
@@ -49,7 +49,7 @@ void analog()
 		{	
 			lecture_present = ADC_GetResult8();
 			vitesse = abs((lecture_precedent - lecture_present)/delai);
-			sprintf(toUART1," \b \r %d ",lecture_present);	// Affichage avec une valeur sur 100
+			sprintf(toUART1," \b \r %d / 100 ",lecture_present*100/255);	// Affichage avec une valeur sur 100
 			UART_PutString(toUART1); 
 			if(vitesse < SEUIL_VITESSE && (abs(lecture_cible - lecture_present)) < SEUIL_VOLTAGE)
 			{
