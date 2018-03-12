@@ -47,7 +47,7 @@ void analog()
 		{	
 			lecture_present = ADC_GetResult8();
 			vitesse = abs((lecture_precedent - lecture_present)/delai);
-			sprintf(toUART1," \b \r %d ",lecture_present);
+			sprintf(toUART1," \b \r %d / 100 ",lecture_present*100/255);	// Affichage avec une valeur sur 100
 			UART_PutString(toUART1); 
 			if(vitesse < 0.000005 && (abs(lecture_cible - lecture_present)) < 2)
 			{
