@@ -29,8 +29,9 @@ void analog()
 	Random_Init();
 	Random_Start();
 	char toUART1[100] = {};
-	sprintf(toUART1," \n La valeur cible est : %d / 100 \r \n ",lecture_cible*100/255);
+	sprintf(toUART1," \r\n La valeur cible est : %d / 100 \r \n ",lecture_cible*100/255);
 	UART_PutString(toUART1);
+	
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
@@ -41,6 +42,7 @@ void analog()
 	const double SEUIL_VITESSE = 0.000005;
 	const int SEUIL_VOLTAGE = 2;
 
+	UART_PutChar('\n');
     do 
     {	
         if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT))
