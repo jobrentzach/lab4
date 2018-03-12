@@ -51,8 +51,10 @@ int main(void)
 	while(1)
 	{
 		char toUARTMenu[1000] = {};
-		snprintf(toUARTMenu,1000,"\r\n\n\n Menu principal : Veuillez choisir une option \r\n Test Alpha-Numerique : A-0 \r\n Test Analogue : A-1 \r\n Test Debut : D \r\n Test Fin : F \r\n Calculer une statistique : C \r\n\r\n Votre Choix (N'oubliez pas d'appuyer sur E pour commencer le test): \r\n\r\n	 ");
+		snprintf(toUARTMenu,1000,"\r\n\n\n Menu principal - Veuillez choisir une option \r\n Test ALPHANUMERIQUE : A0 \r\n Test ANALOGUE : A1 \r\n Test DEBUT : D \r\n Test FIN : F \r\n Calculer les statistiques : C \r\n\r\n Votre choix (appuyez sur E pour valider): ");
 		UART_PutString(toUARTMenu);
+		char CRLFx2[4] = "\r\n\r\n";
+		UART_PutString(CRLFx2);
 		UART_ClearTxBuffer();
 		UART_ClearRxBuffer();
 		

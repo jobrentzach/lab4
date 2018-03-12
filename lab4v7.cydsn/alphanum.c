@@ -10,12 +10,9 @@ void alphanum()
 	
 	int temps = 0;
 	
-	uint8_t key_found = 0;
-	int t= Random_ReadCounter()%30000; // Utilisation du compteur Random comme seed pour générer les nombres aléatoires
+	int t = Random_ReadCounter()%30000;		// Utilisation du compteur Random comme seed pour générer un seed à srand().
     srand(t);
 	
-	//uint8_t random_row = Random_ReadCounter()%4;
-	//uint8_t random_col = Random_ReadCounter()%4;
 	uint8_t random_row = rand() %4;
 	uint8_t random_col = rand() %4;
 	Random_Stop();
@@ -33,12 +30,10 @@ void alphanum()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
-	
-	
-	UART_PutChar(random_char);
-	char toUART1[10] = {};
-	snprintf(toUART1,10,"\r\n %c \r\n", random_char);
+	char toUART1[100] = {};
+	snprintf(toUART1,100," \r\n Appuyez sur %c \r\n", random_char);
 	UART_PutString(toUART1);
+	UART_PutChar(random_char);
 
 	Timer_Start();
 	g_key_pressed = 0;
@@ -46,18 +41,15 @@ void alphanum()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 
-	
-
+	uint8_t key_found = 0;
 	do
 	{
 		char user_char = lecture_clavier();
 		if (random_char == user_char)
 		{
-			
 			temps = (Timer_ReadPeriod() - Timer_ReadCounter()); //Le *10 a été enlevé depuis qu'il faut envoyer le random_char en format string
 			key_found = 1;
 		}
-
 	} while (!temps || !key_found);
 	Timer_Stop();
 	Timer_Init();

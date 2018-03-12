@@ -32,7 +32,6 @@ void menu(char choix)
 		case 'A' :
 		{
 			UART_PutChar('A');
-			UART_PutString(CRNL);
 			char alpha_analog = lecture_clavier();
 			switch(alpha_analog)
 			{
@@ -62,8 +61,11 @@ void menu(char choix)
 		}
 		default :
 		{
-			UART_PutChar('Z');
-			UART_PutString(CRNL);
+			UART_PutChar(choix);
+			char erreur[250] = {};
+			UART_ClearTxBuffer();
+			snprintf(erreur,250,"\r\nErreur, choisissez une option valide. \r\n ");
+			UART_PutString(erreur);
 			break;
 		}
 	}
