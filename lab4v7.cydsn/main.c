@@ -1,14 +1,11 @@
 #include "project.h"
 #include "header.h"
+#include <stdio.h>
+#include <math.h>
 
-struct Test
-{
-	int temps_react[8];
-	int compteur;
-};
 
-struct Test test;
-//test.compteur = 0;
+
+
 
 // TODO: Vérifier la bonne façon de déclarer les var/const extern
 const char CLAVIER[4][4] = {{'1','2','3','A'},{'4','5','6','B'},{'7','8','9','C'},{'0','F','E','D'}};
@@ -22,6 +19,17 @@ CY_ISR_PROTO(ISR_user_btn_Handler);
 int main(void)
 {
 
+	secanceD.compteur = 0;
+	secanceF.compteur = 0;
+	secanceA0.compteur = 0;
+	secanceA1.compteur = 0;
+	for (int k = 0; k < 8; k ++)
+	{
+		secanceD.temps_react[k] = 0;
+		secanceF.temps_react[k] = 0;
+		secanceA0.temps_react[k] = 0;
+		secanceA1.temps_react[k] = 0;
+	}
 	CyGlobalIntEnable;
 	
 	ISR_input_pins_StartEx(ISR_input_pins_Handler);

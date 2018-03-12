@@ -69,4 +69,11 @@ void analog()
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
+	
+	secanceA1.temps_react[secanceA1.compteur] = temps_reaction;
+	secanceA1.compteur +=1;
+	if(secanceA1.compteur == 7)
+	{
+		secanceA1.compteur = 0;
+	}
 }

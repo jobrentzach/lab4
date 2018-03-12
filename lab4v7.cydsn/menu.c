@@ -10,6 +10,17 @@ void menu(char choix)
 
 	switch(choix)
 		{
+			case 'C' :
+			{
+				UART_PutChar('C');
+				char toUART2[10] = {};
+				snprintf(toUART2,10,"\r\n");
+				UART_PutString(toUART2);
+				UART_ClearTxBuffer();
+				UART_ClearRxBuffer();
+				affichage_stats();
+				break;
+			}
 			case 'D' :
 			{
 				

@@ -66,4 +66,11 @@ void alphanum()
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
+	
+	secanceA0.temps_react[secanceA0.compteur] = temps;
+	secanceA0.compteur +=1;
+	if(secanceA0.compteur == 7)
+	{
+		secanceA0.compteur = 0;
+	}
 }

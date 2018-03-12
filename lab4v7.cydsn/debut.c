@@ -44,4 +44,11 @@ void debut()
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
+	
+	secanceD.temps_react[secanceD.compteur] = temps_seance_D;
+	secanceD.compteur +=1;
+	if(secanceD.compteur == 7)
+	{
+		secanceD.compteur = 0;
+	}
 }

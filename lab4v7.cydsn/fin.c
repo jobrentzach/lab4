@@ -39,5 +39,11 @@ void fin()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
+	secanceF.temps_react[secanceF.compteur] = temps_seance_F;
+	secanceF.compteur +=1;
+	if(secanceF.compteur == 7)
+	{
+		secanceF.compteur = 0;
+	}
 	
 }
