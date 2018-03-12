@@ -1,7 +1,12 @@
-- Ajouter C dans l'affichage
-- Régler les erreurs <<Undefined reference to 'pow'>>, <<Undefined reference to 'sqrt'>> dans la fonction stats()
-- Tester l'affichage de la fonction affichage_stats() avec des statistiques de séances
-
+- Tweaker l'affichage des stats (très très optionnel)
+- Messages d'erreur à ajouter (quand une mauvaise touche est pesée)
+- Ajouter l'affichage Analog avec un curseur si possible. Sinon, modifier l'affichage pour avoir un pourcentage du voltage?
+- Faire le ménage dans le code (ex.: fonction fichier stats.c qui ne sert à rien, les déclarations de la fonction stats, etc.)
+- Documentation
+	- Commenter directement dans le code
+	- Rapport de lab: expliquer "les particularités de [notre] implantation"
+		- Pourquoi PuTTY et non MATLAB
+		- Calcul de vitesse pour Analog qui est un peu imprécis à cause du CyDelay (les lecture avec interuptions, c'est la merde)
 
 Ressources
 - Fonction fscanf() de MATLAB
