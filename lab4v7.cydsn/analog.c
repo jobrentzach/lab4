@@ -40,16 +40,18 @@ void analog()
 	
 	int8_t trouve = 0;
 	
-	//char toUART2[50] = {};
+	const double SEUIL_VITESSE = 0.000005;
+	const int SEUIL_VOLTAGE = 2;
+	
     do 
     {	
         if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT))
 		{	
 			lecture_present = ADC_GetResult8();
 			vitesse = abs((lecture_precedent - lecture_present)/delai);
-			sprintf(toUART1," \b \r %d / 100 ",lecture_present*100/255);	// Affichage avec une valeur sur 100
+			sprintf(toUART1," \b \r %d ",lecture_present);	// Affichage avec une valeur sur 100
 			UART_PutString(toUART1); 
-			if(vitesse < 0.000005 && (abs(lecture_cible - lecture_present)) < 2)
+			if(vitesse < SEUIL_VITESSE && (abs(lecture_cible - lecture_present)) < SEUIL_VOLTAGE)
 			{
 				
 				temps_reaction = (Timer_ReadPeriod() - Timer_ReadCounter());//*100; //a revoir le fois 100
