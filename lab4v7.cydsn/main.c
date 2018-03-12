@@ -13,22 +13,27 @@ volatile uint8_t g_key_pressed;
 volatile uint8_t g_btn_pressed;
 volatile uint8_t g_touches[4][4] = {{1,1,1,1},{1,1,1,1},{1,1,1,1},{1,1,1,1}};
 
+volatile struct Sequence sequenceD;
+volatile struct Sequence sequenceF;
+volatile struct Sequence sequenceA0;
+volatile struct Sequence sequenceA1;
+
 CY_ISR_PROTO(ISR_input_pins_Handler);
 CY_ISR_PROTO(ISR_user_btn_Handler);
 
 int main(void)
 {
 
-	secanceD.compteur = 0;
-	secanceF.compteur = 0;
-	secanceA0.compteur = 0;
-	secanceA1.compteur = 0;
+	sequenceD.compteur = 0;
+	sequenceF.compteur = 0;
+	sequenceA0.compteur = 0;
+	sequenceA1.compteur = 0;
 	for (int k = 0; k < 8; k ++)
 	{
-		secanceD.temps_react[k] = 0;
-		secanceF.temps_react[k] = 0;
-		secanceA0.temps_react[k] = 0;
-		secanceA1.temps_react[k] = 0;
+		sequenceD.temps_react[k] = 0;
+		sequenceF.temps_react[k] = 0;
+		sequenceA0.temps_react[k] = 0;
+		sequenceA1.temps_react[k] = 0;
 	}
 	CyGlobalIntEnable;
 	

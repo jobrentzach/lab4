@@ -1,9 +1,8 @@
 #include "project.h"
 #include "header.h"
-#include <stdio.h>
-#include <math.h> // Fonction sqrt, pow
 
-double * stats(int length, double a[])
+
+double * stats(int length, volatile double a[8])
 {
 	double length2 = (double)length;
 	double *statistic[2];
@@ -25,4 +24,5 @@ double * stats(int length, double a[])
 	*statistic[0] = mean;
 	*statistic[1] = std;
 	return *statistic;
+	
 }

@@ -45,10 +45,10 @@ void debut()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
-	secanceD.temps_react[secanceD.compteur] = temps_seance_D;
-	secanceD.compteur +=1;
-	if(secanceD.compteur == 7)
+	sequenceD.temps_react[sequenceD.compteur] = temps_seance_D;
+	sequenceD.compteur +=1;
+	if(sequenceD.compteur == 7)
 	{
-		secanceD.compteur = 0;
+		sequenceD.compteur = 0;
 	}
 }

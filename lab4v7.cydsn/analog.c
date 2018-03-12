@@ -70,10 +70,10 @@ void analog()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
-	secanceA1.temps_react[secanceA1.compteur] = temps_reaction;
-	secanceA1.compteur +=1;
-	if(secanceA1.compteur == 7)
+	sequenceA1.temps_react[sequenceA1.compteur] = temps_reaction;
+	sequenceA1.compteur +=1;
+	if(sequenceA1.compteur == 7)
 	{
-		secanceA1.compteur = 0;
+		sequenceA1.compteur = 0;
 	}
 }
