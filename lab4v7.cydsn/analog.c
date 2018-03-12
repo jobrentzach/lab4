@@ -3,7 +3,6 @@
 
 void analog()
 {
-	UART_Start();
 	Timer_WritePeriod(100000);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
@@ -23,7 +22,7 @@ void analog()
 		return;
 	}
 	
-	int t= Random_ReadCounter()%30000; // Utilisation du compteur Random comme seed pour générer les nombres aléatoires
+	int t= Random_ReadCounter()%30000;	// Utilisation du compteur Random comme seed pour générer les nombres aléatoires
     srand(t);
 	uint8_t lecture_cible = rand() %255;
 	Random_Stop();
@@ -35,14 +34,13 @@ void analog()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
-	
 	Timer_Start();
 	
 	int8_t trouve = 0;
 	
 	const double SEUIL_VITESSE = 0.000005;
 	const int SEUIL_VOLTAGE = 2;
-	
+
     do 
     {	
         if(ADC_IsEndConversion(ADC_WAIT_FOR_RESULT))
@@ -53,14 +51,13 @@ void analog()
 			UART_PutString(toUART1); 
 			if(vitesse < SEUIL_VITESSE && (abs(lecture_cible - lecture_present)) < SEUIL_VOLTAGE)
 			{
-				
-				temps_reaction = (Timer_ReadPeriod() - Timer_ReadCounter());//*100; //a revoir le fois 100
+				temps_reaction = (Timer_ReadPeriod() - Timer_ReadCounter());
 				trouve = 1;
 			}
 			CyDelay(delai);
 		}
 		lecture_precedent = lecture_present;
-		CyDelay(10); //cette valeur est utilisée afin d'optimiser l'affichage
+		CyDelay(10);	// Cette valeur est utilisée afin d'optimiser l'affichage
 	} while (!trouve);
 	Timer_Stop();
 	Timer_Init();
@@ -78,4 +75,6 @@ void analog()
 		sequenceA1.compteur = 0;
 	}
 	sequenceA1.compteur +=1;
+
+	ADC_Stop();
 }
