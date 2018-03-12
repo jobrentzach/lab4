@@ -17,17 +17,16 @@ int moyenne(volatile int length, volatile int a[8])
 }
 
 int ecart(volatile int length, volatile int a[8])
-{
+{	
+	double mean = (double) moyenne(length, a);
+	double sq_sum = 0;
 	
-	int mean = moyenne(length, &a[8]);
-	double temp = 0;
-	
-	for(int j=0; j < length; ++j)
+	for (int i = 0; i  < length; ++i)
 	{
-        temp += pow((double)a[j] - (double)mean,2);
+		sq_sum += a[i]*a[i];
 	}
-    double std = sqrt(temp/length);
+	double variance = sq_sum/length - mean*mean;
+	double std = sqrt(variance);
 	
-	return (int)std;
-	
+	return (int) std;
 }
