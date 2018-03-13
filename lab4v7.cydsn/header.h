@@ -14,7 +14,7 @@ extern volatile uint8_t g_touches[4][4];
 struct Sequence
 {
 	int temps_react[8];
-	int compteur;
+	int compteur; // Position du dernier temps de réaction stocké
 };
 extern volatile struct Sequence sequenceD;
 extern volatile struct Sequence sequenceF;

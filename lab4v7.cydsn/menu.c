@@ -1,10 +1,11 @@
 #include "project.h"
 #include "header.h"
 
-void menu(char choix)
+
+void menu(char choix) // Prend en argument la valeur retournée par la lecture du clavier
 {
-	char CRNL[2] = {};
-	snprintf(CRNL,2,"\r\n");
+	char CRNL[2] = {};		 // Déclaration d'un buffer permettant l'impression d'un saut et
+	snprintf(CRNL,2,"\r\n"); // retour à la ligne utilisé après chaque impression (optimisation du code)
 
 	switch(choix)
 	{
@@ -12,7 +13,7 @@ void menu(char choix)
 		{
 			UART_PutChar('C');
 			UART_PutString(CRNL);
-			affichage_stats();
+			affichage_stats(); // Appel de la fonction correspondante
 			break;
 		}
 		case 'D' :
@@ -32,8 +33,8 @@ void menu(char choix)
 		case 'A' :
 		{
 			UART_PutChar('A');
-			CyDelay(100);
-			UART_ClearTxBuffer();
+			CyDelay(100); // Temps d'attente avant de nettoyer le buffer Tx, cette dernière commande se rend
+			UART_ClearTxBuffer(); // plus rapidement au UART que l'impression, règle les problèmes d'affichage
 			char alpha_analog = lecture_clavier();
 			switch(alpha_analog)
 			{
@@ -53,7 +54,7 @@ void menu(char choix)
 				}
 				/*default :
 				{
-					UART_PutChar('Y');
+					UART_PutChar('Y'); 
 					UART_PutString(CRNL);
 					break;
 				}*/
@@ -61,7 +62,7 @@ void menu(char choix)
 			}
 			break;
 		}
-		default :
+		default : // Retour d'un message d'erreur si une autre touche est appuyée
 		{
 			UART_PutChar(choix);
 			char erreur[250] = {};

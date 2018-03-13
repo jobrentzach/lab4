@@ -8,7 +8,7 @@ uint8_t enable()
 	UART_ClearRxBuffer();
 	
 
-	while (1)
+	while (1) // Lecture en boucle infinie en attendant la touche E
 	{
 		char key = lecture_clavier();
 		if (key == 'E')
@@ -18,13 +18,12 @@ uint8_t enable()
 			UART_PutString(toUART);
 			UART_ClearTxBuffer();
 			UART_ClearRxBuffer();
-
-			// Délai pour donner le temps à l'utilisateur de se préparer.
-			CyDelay(1000);
-
-			return 0;
+			CyDelay(3000); // Délai de 3 secondes afin de donner le temps à l'usager à se préparer avant le test
+			return 0; 
 		}
-		else if (key == 'B')
+		// Fonction << Back >> incluse : dans l'attente du E pour démarrer une expérience, 
+		// la touche appuyée B permet de sortir de la fonction et de revenir au menu
+		else if (key == 'B') 
 		{
 			return 1;
 		}

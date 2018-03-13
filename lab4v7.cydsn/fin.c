@@ -6,7 +6,7 @@ void fin()
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
-	// Attente du départ
+	// Attente du départ, voir fonction alphanum
 	
 	uint8_t sortie = enable();
 	if (sortie)
@@ -33,12 +33,15 @@ void fin()
 	} while (!temps_seance_F);
 	Timer_Stop();
 	Timer_Init();
+	
+	// Impression
 	char toUART[250] = {};
 	sprintf(toUART,"\r\n\n\n Votre temps de reaction pour cette seance est de : %d ms \r\n ",temps_seance_F);
 	UART_PutString(toUART);
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();
 	
+	// Stockage des temps de réaction, voir fonction alphanum
 	sequenceF.temps_react[sequenceF.compteur] = temps_seance_F;
 	if(sequenceF.compteur == 7)
 	{
