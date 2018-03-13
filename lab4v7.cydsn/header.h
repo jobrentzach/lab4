@@ -23,16 +23,16 @@ extern volatile struct Sequence sequenceA0;
 extern volatile struct Sequence sequenceA1;
 
 // Déclaration des fonctions
-char lecture_clavier();
+char lecture_clavier(void);
 void menu(char choix);
-void pins_read();
-void debut();
-void fin();
-void alphanum();
-void analog();
-void affichage_stats();
+void pins_read(void);
+void debut(void);
+void fin(void);
+void alphanum(void);
+void analog(void);
+void affichage_stats(void);
 int moyenne(volatile int length, volatile int a[8]);
 int ecart(volatile int length, volatile int a[8]);
-uint8_t enable();
+uint8_t enable(void);
 
 #endif

@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-uint8_t enable()
+uint8_t enable(void)
 {
 	UART_Start();
 	UART_ClearTxBuffer();

@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-void pins_read()
+void pins_read(void)
 {
 	io_1_SetDriveMode(io_1_DM_DIG_HIZ);
 	io_2_SetDriveMode(io_2_DM_DIG_HIZ);

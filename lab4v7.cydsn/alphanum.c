@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-void alphanum()
+void alphanum(void)
 {
 	UART_Start();
 	Timer_WritePeriod(100000);

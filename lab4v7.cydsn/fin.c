@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-void fin()
+void fin(void)
 {
 	UART_ClearTxBuffer();
 	UART_ClearRxBuffer();

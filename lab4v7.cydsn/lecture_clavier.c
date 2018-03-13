@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-char lecture_clavier()
+char lecture_clavier(void)
 {
 	g_key_pressed = 0;
 	

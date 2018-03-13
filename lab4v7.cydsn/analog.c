@@ -1,7 +1,7 @@
 #include "project.h"
 #include "header.h"
 
-void analog()
+void analog(void)
 {
 	Timer_WritePeriod(100000);
 	UART_ClearTxBuffer();

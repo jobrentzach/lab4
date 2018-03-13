@@ -33,7 +33,7 @@ int ecart(volatile int length, volatile int a[8])
 	return (int) std;
 }
 // Impression des statistiques
-void affichage_stats()
+void affichage_stats(void)
 {
 	// Attente de l'impression
 	uint8_t sortie = enable();
