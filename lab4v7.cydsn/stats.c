@@ -1,6 +1,7 @@
 #include "project.h"
 #include "header.h"
 
+// Calcul de la moyenne des temps de réaction d'un test
 int moyenne(volatile int length, volatile int a[8])
 {
 	int somme = 0;
@@ -16,6 +17,7 @@ int moyenne(volatile int length, volatile int a[8])
 	return mean;
 }
 
+// Calcul de l'écart-type des temps de réaction d'un test 
 int ecart(volatile int length, volatile int a[8])
 {	
 	double mean = (double) moyenne(length, a);
@@ -30,15 +32,17 @@ int ecart(volatile int length, volatile int a[8])
 	
 	return (int) std;
 }
-
+// Impression des statistiques
 void affichage_stats()
 {
+	// Attente de l'impression
 	uint8_t sortie = enable();
 	if (sortie)
 	{
-		return;
+		return; // Sortie de l'affichage et retour au menu si B est appuyé
 	}
-
+	
+	// Calcul des moyennes et écart-types pour chaque test répertorié au moment de l'appel de la fonction
 	int mA0 = moyenne(sequenceA0.compteur, sequenceA0.temps_react);
 	int stdA0 = ecart(sequenceA0.compteur, sequenceA0.temps_react);
 	int mA1 = moyenne(sequenceA1.compteur, sequenceA1.temps_react);
@@ -52,6 +56,7 @@ void affichage_stats()
 	UART_ClearRxBuffer();
 	UART_ClearTxBuffer();
 	
+	// Impression de toutes les statistiques
 	char toUARTStat[500] = {};
 	
 	snprintf(toUARTStat,500," \r\n\n\n Statistiques des essais : \r\n\n");
