@@ -53,7 +53,7 @@ int main(void)
 	{
 		CyDelay(2000); // Temps d'attente avant d'afficher le menu
 		char toUARTMenu[1000] = {};
-		snprintf(toUARTMenu,1000,"\r\n\n\n Menu principal - Veuillez choisir une option \r\n Test ALPHANUMERIQUE : A0 \r\n Test ANALOGUE : A1 \r\n Test DEBUT : D \r\n Test FIN : F \r\n Calculer les statistiques : C \r\n\r\n Votre choix (appuyez sur E pour valider): ");
+		snprintf(toUARTMenu,1000,"\r\n\n\n Menu principal - Veuillez choisir une option \r\n Test ALPHANUMERIQUE : A0 \r\n Test ANALOGUE : A1 \r\n Test DEBUT : D \r\n Test FIN : F \r\n Calculer les statistiques : C \r\n\r\n Votre choix (appuyez sur E pour valider ou B pour annuler): ");
 		UART_PutString(toUARTMenu);
 		char CRLFx2[4] = "\r\n\r\n";
 		UART_PutString(CRLFx2);
